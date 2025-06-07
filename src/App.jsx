@@ -2,6 +2,7 @@ import { useState } from 'react'
 import Logo from './assets/images/Logo.png'
 import EyeIcon from './assets/images/mideye.png'
 import GoogleLogo from './assets/images/logos_google-icon.png'
+import Avatar from './assets/images/beranda/Avatar.png'
 import './App.css'
 
 function App() {
@@ -9,14 +10,21 @@ function App() {
 
   return (
     <>
-      <body className="flex justify-center items-center min-h-screen m-0 relative bg-[#fffae6]">
-    {/* <!-- Logo --> */}
-        <div className="fixed top-0 left-0 w-full bg-white p-2 z-50">
-          <img src= {Logo} alt="Logo Videobelajar" className="h-[50px]" />
-        </div>
+      <body className="m-0 p-0 relative bg-[#fffae6]">
+        <header class="top-0 left-0 w-full bg-white text-black flex justify-between p-2 z-50 mb-8">
+          <div>
+            <img src={Logo} alt="Videobelajar" />
+          </div>
+          <nav class="hidden md:flex items-center gap-4">
+            <span class="mr-5">Kategori</span>
+            <img src={Avatar} alt="User" class="w-[44px] h-[44px] rounded-[10px]" />
+          </nav>
+        <div class="text-2xl cursor-pointer block md:hidden">&#9776;</div>
+        </header>
 
     {/* <!-- Form Container --> */}
-        <div className="bg-white max-w-[590px] w-full min-h-[617px] p-9 rounded-[10px] shadow-md mx-auto mt-20 mb-10 relative">
+    {/* flex justify-center items-center min-h-screen */}
+        <div className="bg-white max-w-[420px] w-full h-auto p-6 rounded-[10px] shadow-md mx-auto mt-10 mb-6 relative">
           <h1 className="text-[32px] font-normal text-[#222325] text-center leading-[110%] mb-2">Masuk Ke Akun</h1>
           <h2 className="text-[16px] text-[#333333AD] text-center mb-6 font-normal tracking-wide">Yuk, lanjutin belajarmu di Videobelajar.</h2>
 
@@ -43,7 +51,10 @@ function App() {
               <span className="bg-white px-2 text-[#4A505C] text-[16px] font-normal absolute left-1/2 transform -translate-x-1/2 -top-3">atau</span>
             </div>
 
-            <button type="button" onclick="loginWithGoogle()" className="w-full flex items-center justify-center gap-2 px-4 py-2 border border-gray-300 rounded">
+            <button 
+              type="button" 
+              onclick="loginWithGoogle()" 
+              className="w-full flex items-center justify-center gap-2 px-4 py-2 border border-gray-300 rounded">
               <img src={GoogleLogo} alt="Google Logo" className="w-5 h-5" />
               <span className="text-[16px]">Masuk dengan Google</span>
             </button>
