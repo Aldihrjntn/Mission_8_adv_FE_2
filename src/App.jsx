@@ -1,27 +1,14 @@
-import { useState } from 'react'
-import Logo from './assets/images/Logo.png'
 import EyeIcon from './assets/images/mideye.png'
 import GoogleLogo from './assets/images/logos_google-icon.png'
-import Avatar from './assets/images/beranda/Avatar.png'
 import './App.css'
+import Navbar from './components/organisems/navbar'
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  
   return (
     <>
       <body className="m-0 p-0 relative bg-[#fffae6]">
-        <header class="top-0 left-0 w-full bg-white text-black flex justify-between p-2 z-50 mb-8">
-          <div>
-            <img src={Logo} alt="Videobelajar" />
-          </div>
-          <nav class="hidden md:flex items-center gap-4">
-            <span class="mr-5">Kategori</span>
-            <img src={Avatar} alt="User" class="w-[44px] h-[44px] rounded-[10px]" />
-          </nav>
-        <div class="text-2xl cursor-pointer block md:hidden">&#9776;</div>
-        </header>
-
+        <Navbar/>
     {/* <!-- Form Container --> */}
     {/* flex justify-center items-center min-h-screen */}
         <div className="bg-white max-w-[420px] w-full h-auto p-6 rounded-[10px] shadow-md mx-auto mt-10 mb-6 relative">
