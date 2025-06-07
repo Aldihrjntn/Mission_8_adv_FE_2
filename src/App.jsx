@@ -9,14 +9,14 @@ function App() {
 
   return (
     <>
-      <body className="flex justify-center items-center min-h-screen m-0 relative">
+      <body className="flex justify-center items-center min-h-screen m-0 relative bg-[#fffae6]">
     {/* <!-- Logo --> */}
-        <div className="absolute top-0 left-0 w-full bg-white p-2 z-50">
+        <div className="fixed top-0 left-0 w-full bg-white p-2 z-50">
           <img src= {Logo} alt="Logo Videobelajar" className="h-[50px]" />
         </div>
 
     {/* <!-- Form Container --> */}
-        <div className="bg-white max-w-[590px] w-full min-h-[617px] p-9 rounded-[10px] shadow-md mx-auto">
+        <div className="bg-white max-w-[590px] w-full min-h-[617px] p-9 rounded-[10px] shadow-md mx-auto mt-20 mb-10 relative">
           <h1 className="text-[32px] font-normal text-[#222325] text-center leading-[110%] mb-2">Masuk Ke Akun</h1>
           <h2 className="text-[16px] text-[#333333AD] text-center mb-6 font-normal tracking-wide">Yuk, lanjutin belajarmu di Videobelajar.</h2>
 
