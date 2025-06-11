@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom'
 import EyeIcon from '../assets/images/mideye.png'
 import GoogleLogo from '../assets/images/logos_google-icon.png'
 import Navbar from '../components/organisems/navbar'
@@ -5,10 +6,26 @@ import Navbar from '../components/organisems/navbar'
 
 function App() {
 
-  const peringatan = (e) => {
-    e.preventDefault()
-    alert("Form disubmit.")
+  const navigate = useNavigate()
+
+const handleLogin = (e) => {
+  e.preventDefault()
+
+  const email = document.getElementById('email').value
+  const password = document.getElementById('password').value
+
+  // Cek login sederhana
+  if (email === 'admin@example.com' && password === '123456') {
+    // Simpan user ke localStorage
+    localStorage.setItem('user', JSON.stringify({ email }))
+
+    // Navigasi ke halaman home
+    navigate('/home')
+  } else {
+    alert('Email atau password salah!')
   }
+}
+
 
   const loginWithGoogle = () => {
     alert("Login dengan Google.")
@@ -31,7 +48,7 @@ function App() {
           <h1 className="text-[32px] font-normal text-[#222325] text-center leading-[110%] mb-2">Masuk Ke Akun</h1>
           <h2 className="text-[16px] text-[#333333AD] text-center mb-6 font-normal tracking-wide">Yuk, lanjutin belajarmu di Videobelajar.</h2>
 
-          <form onSubmit={peringatan}>
+          <form onSubmit={handleLogin}>
             <label htmlFor="email" className="block text-[16px] tracking-wide font-normal font-dmsans mb-1">E-mail <span className="text-red-500">*</span></label>
             <input type="email" id="email" required className="w-full px-3 py-2 border border-gray-300 rounded mb-3 text-[16px]" />
 
@@ -47,7 +64,8 @@ function App() {
 
             <button type="submit" className="w-full h-[42px] bg-[#3ecf4c] text-white rounded-[10px] font-poppins mb-3">Masuk</button>
 
-            <button type="button" onClick={() => (window.location.href = 'Daftar.html')} className="w-full h-[42px] bg-[#E2FCD9CC] text-[#3ecf4c] rounded-[10px] font-poppins mb-3">Daftar</button>
+            <button type="button" onClick={() => navigate('/register')} className="w-full h-[42px] bg-[#E2FCD9CC] text-[#3ecf4c] rounded-[10px] font-poppins mb-3">
+              Daftar</button>
 
             {/* Divider */}
             <div className="w-full border-t border-gray-300 text-center relative my-4">
