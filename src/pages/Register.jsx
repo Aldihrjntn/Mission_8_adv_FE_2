@@ -47,7 +47,7 @@ export default function Register() {
       localStorage.setItem('user', JSON.stringify(user))
       alert('Akun berhasil didaftarkan!')
 
-      navigate('/login')
+      navigate('/')
     }
 
     
@@ -81,8 +81,8 @@ export default function Register() {
               E-mail <span className="text-red-500">*</span></label>
             <input 
             type="email" 
-            id="E-mail" 
-            name="E-mail" 
+            id="email" 
+            name="email" 
             required 
             value={email}
             onChange={(e) => setEmail(e.target.value)}

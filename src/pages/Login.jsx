@@ -13,11 +13,12 @@ const handleLogin = (e) => {
 
   const email = document.getElementById('email').value
   const password = document.getElementById('password').value
+  const storedUser = localStorage.getItem('user')
 
   // Cek login sederhana
-  if (email === 'admin@adm.com' && password === 'admin') {
+  if (storedUser && email === storedUser.email && password === storedUser.password) {
     // Simpan user ke localStorage
-    localStorage.setItem('user', JSON.stringify({ email }))
+    localStorage.setItem('isloggedIn', 'True')
 
     // Navigasi ke halaman home
     navigate('/')
