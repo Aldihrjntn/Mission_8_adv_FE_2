@@ -15,12 +15,12 @@ const handleLogin = (e) => {
   const password = document.getElementById('password').value
 
   // Cek login sederhana
-  if (email === 'admin@example.com' && password === '123456') {
+  if (email === 'admin@adm.com' && password === 'admin') {
     // Simpan user ke localStorage
     localStorage.setItem('user', JSON.stringify({ email }))
 
     // Navigasi ke halaman home
-    navigate('/home')
+    navigate('/')
   } else {
     alert('Email atau password salah!')
   }
