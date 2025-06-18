@@ -1,22 +1,29 @@
 import { useNavigate } from 'react-router-dom'
 import EyeIcon from '../assets/images/mideye.png'
 import GoogleLogo from '../assets/images/logos_google-icon.png'
-import Navbar from '../components/organisems/navbar'
+import Navbar from '../components/organisems/Navbar'
 
 
 function App() {
 
   const navigate = useNavigate()
+  
+  
+  const handleLogin = (e) => {
+    e.preventDefault()
+    
+    const inpEmail = document.getElementById('inpEmail').value
+    const inpPassword = document.getElementById('inpPassword').value
 
-const handleLogin = (e) => {
-  e.preventDefault()
+    // Ambil data user dari localStorage
+    const storedUser = localStorage.getItem('userData')
+    const userData = JSON.parse(storedUser)
+    const email = userData?.email
+    const password = userData?.password
 
-  const email = document.getElementById('email').value
-  const password = document.getElementById('password').value
-  const storedUser = localStorage.getItem('user')
 
   // Cek login sederhana
-  if (storedUser && email === storedUser.email && password === storedUser.password) {
+  if (storedUser && inpEmail === email && inpPassword === password) {
     // Simpan user ke localStorage
     localStorage.setItem('isloggedIn', 'True')
 
@@ -28,12 +35,13 @@ const handleLogin = (e) => {
 }
 
 
+
   const loginWithGoogle = () => {
     alert("Login dengan Google.")
   }
 
   const togglePassword = () => {
-    const passwordInput = document.getElementById('password')
+    const passwordInput = document.getElementById('inpPassword')
     if (passwordInput.type === "password") {
       passwordInput.type = "text"
     } else {
@@ -50,12 +58,12 @@ const handleLogin = (e) => {
           <h2 className="text-[16px] text-[#333333AD] text-center mb-6 font-normal tracking-wide">Yuk, lanjutin belajarmu di Videobelajar.</h2>
 
           <form onSubmit={handleLogin}>
-            <label htmlFor="email" className="block text-[16px] tracking-wide font-normal font-dmsans mb-1">E-mail <span className="text-red-500">*</span></label>
-            <input type="email" id="email" required className="w-full px-3 py-2 border border-gray-300 rounded mb-3 text-[16px]" />
+            <label htmlFor="inpEmail" className="block text-[16px] tracking-wide font-normal font-dmsans mb-1">E-mail <span className="text-red-500">*</span></label>
+            <input type="email" id="inpEmail" required className="w-full px-3 py-2 border border-gray-300 rounded mb-3 text-[16px]" />
 
-            <label htmlFor="password" className="block text-[16px] tracking-wide font-normal font-dmsans mb-1">Kata Sandi <span className="text-red-500">*</span></label>
+            <label htmlFor="inpPassword" className="block text-[16px] tracking-wide font-normal font-dmsans mb-1">Kata Sandi <span className="text-red-500">*</span></label>
             <div className="relative flex items-center mb-3">
-              <input type="password" id="password" required className="w-full px-3 py-2 border border-gray-300 rounded text-[16px]" />
+              <input type="password" id="inpPassword" required className="w-full px-3 py-2 border border-gray-300 rounded text-[16px]" />
               <img onClick={togglePassword} src={EyeIcon} alt="Lihat Password" className="absolute right-7 cursor-pointer w-5" />
             </div>
 

@@ -2,12 +2,14 @@ import React from 'react'
 import {Navigate} from 'react-router-dom'
 
  const ProtectedRoute = ({children}) => {
-    const userData = localStorage.getItem('user')
+    const user = localStorage.getItem('userData')
+    const userData = JSON.parse(user)
+    const email = userData?.email
+    const password = userData?.password
+    const authloggedIn = localStorage.getItem('isloggedIn') === 'True' && email && password
 
-    if (!userData) {
-    return <Navigate to="/login" replace/>
-    }
-    return children
+    return authloggedIn ? children : <Navigate to="/login" replace/>
+     
 }
 
 export default ProtectedRoute

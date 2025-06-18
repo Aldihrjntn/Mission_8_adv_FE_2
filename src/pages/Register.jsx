@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import EyeIcon from '../assets/images/mideye.png'
 import GoogleLogo from '../assets/images/logos_google-icon.png'
 import Ina from '../assets/images/INA.png'
-import Navbar from '../components/organisems/navbar'
+import Navbar from '../components/organisems/Navbar'
 
 
 
@@ -37,17 +37,17 @@ export default function Register() {
         return
       }
 
-      const user = {
+      const userData = {
         nama,
         email,
         noHp,
         password,
       }
 
-      localStorage.setItem('user', JSON.stringify(user))
+      localStorage.setItem('userData', JSON.stringify(userData))
       alert('Akun berhasil didaftarkan!')
 
-      navigate('/')
+      navigate('/login')
     }
 
     
@@ -160,7 +160,7 @@ export default function Register() {
               <span className="bg-white px-2 text-[#4A505C] text-[16px] font-normal absolute left-1/2 transform -translate-x-1/2 -top-3">atau</span>
             </div>
             
-            <button type="button" onClick="loginWithGoogle()" className="w-full flex items-center justify-center gap-2 px-4 py-2 border border-gray-300 rounded">
+            <button type="button" className="w-full flex items-center justify-center gap-2 px-4 py-2 border border-gray-300 rounded">
               <img src={GoogleLogo} alt="Google Logo" className="w-5 h-5" />
               <span className="text-[16px]">Masuk dengan Google</span>
             </button>
