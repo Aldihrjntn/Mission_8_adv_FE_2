@@ -1,7 +1,7 @@
 import React from 'react'
 import imgCML from '../../../assets/images/beranda/card4.jpg'
 import avatarCML from '../../../assets/images/beranda/jenna4.png'
-import Card from '../props/card'
+import Card from '../props/Card'
 
 export default function CardML() {
   return (

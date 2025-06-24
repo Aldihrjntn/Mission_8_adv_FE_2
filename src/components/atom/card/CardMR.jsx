@@ -1,7 +1,7 @@
 import React from 'react'
 import imgCMR from '../../../assets/images/beranda/card6.jpg'
 import avatarCMR from '../../../assets/images/beranda/jenna6.png'
-import Card from '../props/card'
+import Card from '../props/Card'
 
 export default function CardMR() {
   return (

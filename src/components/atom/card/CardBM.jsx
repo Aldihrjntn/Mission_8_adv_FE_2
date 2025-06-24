@@ -1,7 +1,7 @@
 import React from 'react'
 import imgCBM from '../../../assets/images/beranda/card8.jpg'
 import avatarCBM from '../../../assets/images/beranda/jenna8.png'
-import Card from '../props/card'
+import Card from '../props/Card'
 
 export default function CardBM() {
   return (

@@ -1,7 +1,7 @@
 import React from 'react'
 import imgCTR from '../../../assets/images/beranda/card3.jpg'
 import avatarCTR from '../../../assets/images/beranda/jenna3.png'
-import Card from '../props/card'
+import Card from '../props/Card'
 
 export default function CardTR() {
    

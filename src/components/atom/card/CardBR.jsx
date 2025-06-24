@@ -1,7 +1,7 @@
 import React from 'react'
 import imgCBR from '../../../assets/images/beranda/card9.jpg'
 import avatarCBR from '../../../assets/images/beranda/jenna3.png'
-import Card from '../props/card'
+import Card from '../props/Card'
 
 export default function CardBR() {
   return (

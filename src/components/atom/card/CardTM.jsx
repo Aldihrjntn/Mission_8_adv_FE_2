@@ -1,7 +1,7 @@
 import React from 'react'
 import imgCTM from '../../../assets/images/beranda/card2.jpg'
 import avatarCTM from '../../../assets/images/beranda/jenna2.png'
-import Card from '../props/card'
+import Card from '../props/Card'
 
 export default function CardTM() {
    
