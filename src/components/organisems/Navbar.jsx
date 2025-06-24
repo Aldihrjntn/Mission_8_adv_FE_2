@@ -2,7 +2,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import Logo from '../../assets/images/Logo.png'
 import Avatar from '../../assets/images/beranda/Avatar.png'
-import Cart from '../../assets/images/Cart.png'
+import Cart from '../../assets/images/cart.png'
 
 
 export default function Navbar() {
