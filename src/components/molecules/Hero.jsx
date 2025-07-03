@@ -16,8 +16,8 @@ export default function Hero() {
                     <p className="text-[1rem] md:text-[1.1vw] mb-6">
                         Temukan ilmu baru yang menarik dan mendalam melalui koleksi video pembelajaran berkualitas tinggi. Tidak <br />
                         hanya itu, Anda juga dapat berpartisipasi dalam latihan interaktif yang akan meningkatkan pemahaman Anda.</p>
-                    <a href="#" className="inline-block bg-[#3ECF4C] text-white font-bold px-6 py-3 rounded hover:bg-[#36b742] text-[1rem] md:text-[1.1vw]">
-                        Temukan Video Course untuk Dipelajari!</a>
+                    <button  className="inline-block cursor-pointer bg-[#3ECF4C] text-white font-bold px-6 py-3 rounded hover:bg-[#36b742] text-[1rem] md:text-[1.1vw]">
+                        Temukan Video Course untuk Dipelajari!</button>
                 </div>
         </section>
     </>

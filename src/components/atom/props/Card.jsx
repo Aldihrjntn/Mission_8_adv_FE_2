@@ -56,7 +56,7 @@ export default function Card
 
   return (
   <>
-  <article className="bg-white p-5 rounded-lg shadow hover:-translate-y-1 transition-transform">
+  <article className="cursor-pointer bg-white p-5 rounded-lg shadow hover:-translate-y-1 transition-transform">
           <img 
             src={gambarKelas} 
             alt="Course" 
