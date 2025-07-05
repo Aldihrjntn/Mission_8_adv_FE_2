@@ -78,7 +78,7 @@ export default function Card
             </div>
             <div className="text-sm text-right">
               <span>⭐ 3.5 (86)</span><br/>
-              <strong className="text-lg">Rp {harga / 1000}K</strong> <br/>
+              <strong className="text-lg">{harga}$</strong> <br/>
               <div>
                 <button 
                   onClick={tambahKeranjang}

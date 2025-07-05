@@ -1,7 +1,7 @@
 import React from 'react'
 import imgCTL from '../../../assets/images/beranda/card1.jpg'
 import avatarCTL from '../../../assets/images/beranda/jenna1.png'
-import Card from '../props/Card'
+import Card from '../../molecules/Card'
 
 export default function CardTL() {
    
