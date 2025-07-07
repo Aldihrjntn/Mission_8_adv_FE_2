@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function FooterSection({ title, items }) {
   const [open, setOpen] = useState(false);
@@ -23,6 +24,8 @@ function FooterSection({ title, items }) {
 }
 
 export default function Footer() {
+  const navigate = useNavigate()
+
   return (
     <footer className="bg-white px-6 md:px-20 py-10 flex flex-wrap gap-10 justify-between text-sm">
       <div className="w-full md:w-1/4">
@@ -54,7 +57,16 @@ export default function Footer() {
         ]}
       />
 
-      <FooterSection title="Komunitas" items={['Tips Sukses', 'Blog']} />
+      <FooterSection 
+        title="Komunitas" 
+        items={[
+          'Tips Sukses', 
+          'Blog'
+        ]} 
+      />
+
+      <p onClick={() => navigate('/admin')} className='font-bold flex items-center justify-between md:block cursor-pointer'>Admin</p>
+
     </footer>
   );
 }

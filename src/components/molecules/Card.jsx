@@ -74,11 +74,12 @@ export default function Card
               <span className="text-sm">
                 {namaPengajar}<br/>
                 <small className="text-xs text-gray-500">
-                  {jabatanPengajar}</small></span>
+                  {jabatanPengajar}</small><br/>
+                <span>⭐ 3.5 (86)</span>
+                  </span><br/>
             </div>
             <div className="text-sm text-right">
-              <span>⭐ 3.5 (86)</span><br/>
-              <strong className="text-lg">{harga}$</strong> <br/>
+              <strong className="text-lg text-green-500">Rp {harga}</strong> <br/>
               <div>
                 <button 
                   onClick={tambahKeranjang}

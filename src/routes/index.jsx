@@ -3,6 +3,7 @@ import Login from "../pages/Login";
 import Home from "../pages/Home";
 import Register from "../pages/Register";
 import Cart from "../pages/Cart";
+import Admin from "../pages/Admin";
 import ProtectedRoute from "../routes/ProtectedRoute";
 
 export const router = createBrowserRouter([
@@ -28,5 +29,10 @@ export const router = createBrowserRouter([
     {
         path: "/cart",
         element: <Cart />
+    },
+
+    {
+        path: "/admin",
+        element: <Admin />
     }
 ])

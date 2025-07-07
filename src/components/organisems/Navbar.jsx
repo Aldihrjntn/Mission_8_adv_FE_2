@@ -9,6 +9,7 @@ export default function Navbar() {
   
   const navigate = useNavigate()
 
+
   return (
     <>
         <header className="m-0 w-full bg-white text-black flex justify-between px-2 py-0 z-50">
