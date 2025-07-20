@@ -1,32 +1,27 @@
-import React from 'react'
-import { useState, useEffect } from 'react'
+
+import { useEffect } from 'react'
 import Card from '../../molecules/Card'
-import axios from 'axios';
+import useProductStore from '../../../store/ProductStore'
+import apiClient from '../../../api/axiosconfig'
+
 
 export default function ContentCard() {
-    const [produk, setProduk]  = useState([])
-    const apiUrl = import.meta.env.VITE_API_URL;
 
-    // useEffect(() => { 
-    //     fetch(`${apiUrl}/product`)
-    //         .then(response => response.json())
-    //         .then(data => {
-    //             console.log(data)
-    //             setProduk(data)
-    //         })
-    //         .catch(error => {
-    //             console.error('Error fetching data:', error);
-    //         })
-    // }, [apiUrl])
+    const { produk, setProduk } = useProductStore()
 
     useEffect(() => {
-        axios.get(`${apiUrl}/product`)
-            .then((response) => {
+        const fetchProduk = async () => {
+            try {
+                const response = await apiClient.get('/product')
                 setProduk(response.data)
-            })
-            .catch((error) => {
-                console.error('Error fetching data:', error);
-            })}, [apiUrl])
+                console.log("Data:", response.data)
+            }
+            catch (error) {
+                console.error("Gagal mengambil data:", error)
+            }
+        }
+        fetchProduk()
+    }, [setProduk])
 
  
   return (

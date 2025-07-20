@@ -1,29 +1,35 @@
 import React from 'react'
 import HomeLayout from '../layouts/HomeLayout'
-import { useState, useEffect, useCallback } from 'react'
-import axios from 'axios' 
+import { useState, useEffect } from 'react'
+import useProductStore from '../store/ProductStore'
+import apiClient from '../api/axiosconfig'
+import { tambahProduk, editProduk, hapusProduk } from '../services/ProductCrud'
+
+
+
+//saya menggunakan axios untuk CRUD data produk dari API
 
 
 export default function Admin() {
-  const [produk, setProduk]  = useState([])
-  const apiUrl = import.meta.env.VITE_API_URL;
+
   const [form, setForm] = useState({ title: "", subtitle: "", mentor: "", price: "" });
   const [editingId, setEditingId] = useState(null); // null berarti sedang tidak edit
 
-  // Ambil Produk
-  const fetchProduk = useCallback(async () => {
-    try {
-      const response = await axios.get(`${apiUrl}/product`);
-      setProduk(response.data);
-      console.log("Data:", response.data);
-    } catch (error) {
-      console.error("Gagal mengambil data:", error);
-    }
-  }, [apiUrl]);
-
-  useEffect(() => {
-    fetchProduk();
-  }, [fetchProduk]);
+  //ambil Produk
+ const { produk, setProduk } = useProductStore()
+    useEffect(() => {
+        const fetchProduk = async () => {
+            try {
+                const response = await apiClient.get('/product')
+                setProduk(response.data)
+                console.log("Data:", response.data)
+            }
+            catch (error) {
+                console.error("Gagal mengambil data:", error)
+            }
+        }
+        fetchProduk()
+    }, [setProduk])
 
 
   // Tambah Produk
@@ -32,12 +38,12 @@ export default function Admin() {
     try {
       if (editingId) {
         // Update produk
-        await axios.put(`${apiUrl}/product/${editingId}`, form);
+        await editProduk(editingId, form);
       } else {
         // Tambah produk baru
-        await axios.post(`${apiUrl}/product`, form);
+        await tambahProduk(form);
       }
-      fetchProduk() // Refresh data produk
+      setProduk() // Refresh data produk
       setForm({ 
         title: "", 
         subtitle: "", 
@@ -49,14 +55,16 @@ export default function Admin() {
     }
   }
 
+
+
   // Hapus Produk
   const handleDelete = async (id) => {
     const confirmDelete = confirm("Yakin ingin menghapus produk ini?")
     if (!confirmDelete) return
 
     try {
-      await axios.delete(`${apiUrl}/product/${id}`)
-      fetchProduk() // Refresh data produk setelah hapus
+      await hapusProduk(id);
+      setProduk() // Refresh data produk setelah hapus
     } catch (error) {
       console.error("Gagal menghapus data:", error)
     }
