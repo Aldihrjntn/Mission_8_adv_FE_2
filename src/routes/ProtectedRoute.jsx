@@ -1,7 +1,7 @@
 import React from 'react'
 import {Navigate} from 'react-router-dom'
 
- const ProtectedRoute = ({children}) => {
+export const ProtectedRoute = ({children}) => {
     const user = localStorage.getItem('userData')
     const userData = JSON.parse(user)
     const email = userData?.email
@@ -12,4 +12,10 @@ import {Navigate} from 'react-router-dom'
      
 }
 
-export default ProtectedRoute
+
+
+export const PublicRoute = ({ children }) => {
+  const isLoggedIn = localStorage.getItem('isloggedIn') === 'True'
+
+  return isLoggedIn ? <Navigate to="/" replace /> : children
+}

@@ -4,7 +4,7 @@ import Home from "../pages/Home";
 import Register from "../pages/Register";
 import Cart from "../pages/Cart";
 import Admin from "../pages/Admin";
-import ProtectedRoute from "../routes/ProtectedRoute";
+import { ProtectedRoute, PublicRoute } from "./ProtectedRoute";
 
 export const router = createBrowserRouter([
     {
@@ -18,21 +18,34 @@ export const router = createBrowserRouter([
     
     {
      path: "/login",
-     element: <Login />
+     element:
+        <PublicRoute>
+            <Login />
+        </PublicRoute>
+        
     },
 
     {
      path: "/register",
-     element: <Register />
+     element:
+        <PublicRoute>
+            <Register />
+        </PublicRoute>
     },
 
     {
         path: "/cart",
-        element: <Cart />
+        element: 
+        <ProtectedRoute>
+            <Cart />
+        </ProtectedRoute>
     },
 
     {
         path: "/admin",
-        element: <Admin />
+        element: 
+        <ProtectedRoute>
+            <Admin />
+        </ProtectedRoute>
     }
 ])
