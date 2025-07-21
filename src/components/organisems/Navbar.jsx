@@ -9,6 +9,13 @@ export default function Navbar() {
   
   const navigate = useNavigate()
 
+  const handleLogout = () => {
+    localStorage.removeItem('token')
+    localStorage.removeItem('isloggedIn')
+    localStorage.removeItem('userData')
+    navigate('/login')
+  }
+
 
   return (
     <>
@@ -20,6 +27,7 @@ export default function Navbar() {
           <nav className="hidden md:flex items-center gap-1">
             <img src={Cart} alt="Keranjang" className="w-[24px] h-auto mr-5"
             onClick={() => navigate('/cart')} />
+            <button onClick={handleLogout} className="text-red-500">Logout</button>
             <span className="mr-5">Kategori</span>
             <img src={Avatar} alt="User" className="w-[44px] h-auto mr-5 rounded-[10px]" />
           </nav>
