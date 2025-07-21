@@ -35,7 +35,7 @@ export default function Navbar() {
             onClick={() => navigate('/cart')} />
             <span className="mr-5">Kategori</span>
               <img onClick={handleDropdown} src={Avatar} alt="User" className="w-[44px] h-auto mr-5 rounded-[10px]" />
-            <div className="dropdown-content hidden absolute bg-white shadow-lg rounded-lg right-5 p-4 mt-35">
+            <div className="dropdown-content hidden absolute bg-white shadow-lg rounded-lg right-5 p-4 mt-35 z-50">
               <p onClick={() => navigate('/admin')} className='font-bold flex items-center justify-between md:block cursor-pointer'>Admin</p>
               <button onClick={handleLogout} className="text-red-500">Logout</button>
             </div>
