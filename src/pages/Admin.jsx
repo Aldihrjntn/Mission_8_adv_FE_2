@@ -85,7 +85,7 @@ export default function Admin() {
   return (
     <>
     <HomeLayout>
-      |<div className="max-w-2xl mx-auto mt-10 p-6 bg-white shadow-md rounded-md mb-10">
+      <div className="max-w-2xl mx-auto mt-10 p-6 bg-white shadow-md rounded-md mb-10">
         <div className="w-full bg-white p-4 mb-10">
           <h2 className="text-xl font-bold pb-5">Admin Produk</h2>
 

@@ -9,6 +9,12 @@ export default function Navbar() {
   
   const navigate = useNavigate()
 
+  const handleDropdown = () => {
+    const dropdown = document.querySelector('.dropdown-content')
+    dropdown.classList.toggle('hidden')
+    dropdown.classList.toggle('block')
+  }
+
   const handleLogout = () => {
     localStorage.removeItem('token')
     localStorage.removeItem('isloggedIn')
@@ -27,9 +33,12 @@ export default function Navbar() {
           <nav className="hidden md:flex items-center gap-1">
             <img src={Cart} alt="Keranjang" className="w-[24px] h-auto mr-5"
             onClick={() => navigate('/cart')} />
-            <button onClick={handleLogout} className="text-red-500">Logout</button>
             <span className="mr-5">Kategori</span>
-            <img src={Avatar} alt="User" className="w-[44px] h-auto mr-5 rounded-[10px]" />
+              <img onClick={handleDropdown} src={Avatar} alt="User" className="w-[44px] h-auto mr-5 rounded-[10px]" />
+            <div className="dropdown-content hidden absolute bg-white shadow-lg rounded-lg right-5 p-4 mt-35">
+              <p onClick={() => navigate('/admin')} className='font-bold flex items-center justify-between md:block cursor-pointer'>Admin</p>
+              <button onClick={handleLogout} className="text-red-500">Logout</button>
+            </div>
           </nav>
           <div className="text-2xl cursor-pointer block md:hidden">&#9776;</div>
         </header>
